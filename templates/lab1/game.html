@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Kółko i krzyżyk</title>
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ticktoe.css' %}">
+{% endblock css_block %}
+
+
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron j1">
+            <h1 class="display-4"><strong>Kółko i krzyżyk</strong></h1>
+            <p class="lead">Prosta mini gra nie zawierająca systemu spawdzania rezultatów</p>
+            <button id="but" type="button" class="btn btn-primary">Restart!</button>
+        </div>
+
+        <table class="myTable">
+            <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="{% static "js/tick.js" %}"></script>
+{% endblock %}

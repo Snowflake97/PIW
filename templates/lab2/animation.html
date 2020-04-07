@@ -1,0 +1,27 @@
+{% extends "lab2/../base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Animacja</title>
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animation.css' %}">
+{% endblock css_block %}
+
+{% block body_block %}
+    <br>
+    <div class="container">
+        <img id="animacja" src="{% static "img/rocketship.gif" %}" width="50" height="50">
+
+        <div class="buttons" align="center">
+            <button type="button" id="faster" class="btn btn-primary">Szybciej</button>
+            <button type="button" id="slower" class="btn btn-primary">Wolniej</button>
+        </div>
+    </div>
+
+{% endblock body_block %}
+
+{% block script %}
+    <script src="{% static "js/animation.js" %}"></script>
+{% endblock script %}

@@ -1,0 +1,24 @@
+{% extends "lab2/../base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Zmieniające sie logo</title>
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/master.css' %}">
+{% endblock css_block %}
+
+{% block body_block %}
+    <br>
+    <div class="container">
+        <div class="jumbotron j1" align="center">
+            <a id="odnosnik" href="https://www.google.com/"><img id="icon"
+                    src="https://widoczni.com/assets/blog/Od-1997-do-teraz-czyli-jak-zmienial-sie-logotyp-Google/6/LOGO-G.png" width="300" height="300"></a>
+        </div>
+    </div>
+{% endblock body_block %}
+
+{% block script %}
+    <script src="{% static "js/picture.js" %}"></script>
+{% endblock script %}

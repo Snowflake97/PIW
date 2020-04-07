@@ -1,0 +1,16 @@
+.jumbotron{
+    background: white;
+}
+
+.form-text {
+    margin-top: 10px;
+}
+
+.form-row {
+    padding-top: 2%;
+}
+
+#myButton {
+    margin-left: 20%;
+    width: 200px;
+}

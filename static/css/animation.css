@@ -1,0 +1,13 @@
+body {
+    background: url("/static/img/starfield.gif");
+}
+
+.buttons {
+    padding-top: 20%;
+}
+
+#animacja {
+    top: 100px;
+    left: 1px;
+    position: absolute;
+}

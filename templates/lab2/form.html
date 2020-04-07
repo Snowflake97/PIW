@@ -1,0 +1,121 @@
+{% extends "lab2/../base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Formularz</title>
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+{% endblock css_block %}
+
+{% block body_block %}
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="jumbotron j1">
+                    <form>
+                        <div class="form-row">
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="imie" aria-describedby="imieHelp"
+                                       placeholder="Imię">
+                            </div>
+                            <div class="col-md-3">
+                                <small id="imieHelp" class="form-text"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="nazwisko" aria-describedby="nazwiskoHelp"
+                                       placeholder="Nazwisko">
+                            </div>
+                            <div class="col-md-3">
+                                <small id="nazwiskoHelp" class="form-text"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="telefon" aria-describedby="telefonHelp"
+                                       placeholder="Numer telefonu">
+                            </div>
+                            <div class="col-md-3">
+                                <small id="telefonHelp" class="form-text"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="data" aria-describedby="dataHelp"
+                                       placeholder="Data urodzenia">
+                            </div>
+                            <div class="col-md-3">
+                                <small id="dataHelp" class="form-text"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-9">
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                       placeholder="Email">
+                            </div>
+                            <div class="col-md-3">
+                                <small id="emailHelp" class="form-text"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="login" aria-describedby="loginHelp"
+                                       placeholder="Login">
+                            </div>
+                            <div class="col-md-3">
+                                <small id="loginHelp" class="form-text"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" id="haslo" aria-describedby="hasloHelp"
+                                       placeholder="Hasło">
+                            </div>
+                            <div class="col-md-3">
+                                <small id="hasloHelp" class="form-text"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" id="haslo_2" aria-describedby="haslo_2Help"
+                                       placeholder="Powtórz hasło">
+                            </div>
+                            <div class="col-md-3">
+                                <small id="haslo_2Help" class="form-text"></small>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-9">
+                                <button type="button" id="myButton" class="btn btn-primary">Prześlij</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="jumbotron j2">
+                    <p id="results"></p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock body_block %}
+
+{% block script %}
+    <script src="{% static "js/form.js" %}"></script>
+{% endblock script %}

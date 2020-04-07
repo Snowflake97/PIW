@@ -1,0 +1,113 @@
+{% extends "lab2/../base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Gra zrecznościowa</title>
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/game.css' %}">
+{% endblock css_block %}
+
+{% block body_block %}
+    <p id="result">Wynik: 0</p>
+    <p id="time">Odświeżenie(ms): 5000</p>
+    <img id="obiekt" src="{% static "img/rocketship.gif" %}" width="50" height="50">
+
+{% endblock body_block %}
+
+{% block script %}
+    <script>
+        var width = document.body.clientWidth - 100
+        var height = document.documentElement.clientHeight - 100;
+
+        var obiekt = document.getElementById("obiekt");
+
+        var score = 0;
+        var block = false;
+
+        var correct_img = obiekt.src
+
+        obiekt.style.left = "1px"
+        obiekt.style.top = "120px"
+
+        //boundries
+        // y >120 and y< height
+        // x>0 and x< width
+
+
+        myTime = 5000;
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function updatePoints() {
+            document.getElementById("result").textContent = "Wynik: " + score
+        }
+
+        function nextPosition() {
+            x = getRandomInt(0, width);
+            y = getRandomInt(120, height);
+            position = {x_pos: x, y_pos: y};
+            return position;
+        }
+
+        function generateWrong() {
+            rand = getRandomInt(0, 100)
+            return rand
+        }
+
+        function moveObject() {
+            position = nextPosition()
+            obiekt.style.top = position.y_pos + "px"
+            obiekt.style.left = position.x_pos + "px"
+            block = false
+            rand = generateWrong()
+            if (rand < 20) {
+                obiekt.src = "{% static "img/snake.gif" %}"
+            } else {
+                obiekt.src = "{% static "img/rocketship.gif" %}"
+            }
+        }
+
+        function updateTime() {
+            if (score == 0) {
+                myTime = 5000
+            } else if (score == 1) {
+                myTime = 4500
+            } else if (score == 2) {
+                myTime = 3800
+            } else {
+                myTime = 5000 / (Math.log2(score))
+                console.log(5000 / (Math.log2(score)))
+            }
+        }
+
+        obiekt.onclick = function () {
+            if (block == false) {
+                if (obiekt.src == correct_img) {
+                    block = true;
+                    score++;
+                } else if (block == false && obiekt.src != correct_img) {
+                    block = true;
+                    score--;
+                }
+                updatePoints();
+                updateTime();
+                document.getElementById("time").textContent= "Odświeżanie(ms): "+parseInt(myTime)
+            }
+
+        }
+
+
+        setTimeout(function run() {
+            moveObject()
+            setTimeout(run, myTime);
+        }, myTime);
+
+    </script>
+{% endblock script %}

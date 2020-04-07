@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Zwierzęta</title>
+{% endblock %}
+
+{% block css_block %}
+    <style>
+        .jumbotron {
+            background: white;
+        }
+    </style>
+{% endblock css_block %}
+
+{% block body_block %}
+    <br>
+    <div class="container">
+        <div class="jumbotron" align="center">
+            <div class="row">
+                <div class="col-md-6">
+                    <img id="bird" src="{% static "img/birdout.gif" %}">
+                    <br>
+                    <img id="walrus" src="{% static "img/walrusout.gif" %}">
+                    <br>
+                    <img id="gator" src="{% static "img/gatorover.gif" %}">
+                    <br>
+                    <img id="dog" src="{% static "img/dogout.gif" %}">
+                    <br>
+                    <img id="pig" src="{% static "img/pigout.gif" %}">
+                    <br>
+                    <img id="snake" src="{% static "img/snakeout.gif" %}">
+                    <br>
+                    <img id="reindeer" src="{% static "img/reindeerout.gif" %}">
+                    <br>
+                    <img id="turkey" src="{% static "img/turkeyout.gif" %}">
+                    <br>
+                    <img id="cow" src="{% static "img/cowout.gif" %}">
+                    <br>
+                    <img id="crane" src="{% static "img/craneout.gif" %}">
+                </div>
+                <div class="col-md-6" align="left">
+                    <br>
+                    <img id="picture" src="{% static "img/gator.gif" %}">
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock body_block %}
+
+{% block script %}
+    <script>
+        var prev = document.getElementById("gator");
+
+        function cleanLast(){
+            prev_name = prev.id+"out.gif";
+            console.log(prev_name);
+            prev.src = "{% static "" %}img/"+prev_name;
+        }
+
+        document.getElementById("bird").addEventListener("click", function () {
+            if(this.id != prev.id){
+            this.src = "{% static "img/birdover.gif" %}";
+            document.getElementById("picture").src = "{% static "img/bird.gif" %}";
+                   cleanLast();
+            prev = this;
+            }
+        })
+
+        document.getElementById("walrus").addEventListener("click", function () {
+            if(this.id != prev.id){
+            this.src = "{% static "img/walrusover.gif" %}";
+            document.getElementById("picture").src = "{% static "img/walrus.gif" %}";
+                   cleanLast();
+            prev = this;
+            }
+        })
+
+            document.getElementById("gator").addEventListener("click", function () {
+            if(this.id != prev.id){
+            this.src = "{% static "img/gatorover.gif" %}";
+            document.getElementById("picture").src = "{% static "img/gator.gif" %}";
+                   cleanLast();
+            prev = this;
+            }
+        })
+            document.getElementById("dog").addEventListener("click", function () {
+            if(this.id != prev.id){
+            this.src = "{% static "img/dogover.gif" %}";
+            document.getElementById("picture").src = "{% static "img/dog.gif" %}";
+                   cleanLast();
+            prev = this;
+            }
+        })
+            document.getElementById("pig").addEventListener("click", function () {
+            if(this.id != prev.id){
+            this.src = "{% static "img/pigover.gif" %}";
+            document.getElementById("picture").src = "{% static "img/pig.gif" %}";
+                   cleanLast();
+            prev = this;
+            }
+        })
+            document.getElementById("snake").addEventListener("click", function () {
+            if(this.id != prev.id){
+            this.src = "{% static "img/snakeover.gif" %}";
+            document.getElementById("picture").src = "{% static "img/snake.gif" %}";
+                   cleanLast();
+            prev = this;
+            }
+        })
+            document.getElementById("reindeer").addEventListener("click", function () {
+            if(this.id != prev.id){
+            this.src = "{% static "img/reindeerover.gif" %}";
+            document.getElementById("picture").src = "{% static "img/reindeer.gif" %}";
+                   cleanLast();
+            prev = this;
+            }
+        })
+            document.getElementById("turkey").addEventListener("click", function () {
+            if(this.id != prev.id){
+            this.src = "{% static "img/birdover.gif" %}";
+            document.getElementById("picture").src = "{% static "img/turkey.gif" %}";
+                   cleanLast();
+            prev = this;
+            }
+        })
+            document.getElementById("cow").addEventListener("click", function () {
+            if(this.id != prev.id){
+            this.src = "{% static "img/cowover.gif" %}";
+            document.getElementById("picture").src = "{% static "img/cow.gif" %}";
+                   cleanLast();
+            prev = this;
+            }
+        })
+            document.getElementById("crane").addEventListener("click", function () {
+            if(this.id != prev.id){
+            this.src = "{% static "img/craneover.gif" %}";
+            document.getElementById("picture").src = "{% static "img/crane.gif" %}";
+                   cleanLast();
+            prev = this;
+            }
+        })
+
+
+    </script>
+{% endblock script %}

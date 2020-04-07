@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Strona główna</title>
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/master.css' %}">
+{% endblock css_block %}
+
+
+{% block body_block %}
+    <br>
+    <div class="container">
+        <div class="jumbotron j2">
+            <h1 class="display-4"> Strona główna </h1>
+
+            <p class="lead">Pierwsze laboratorium Projektowania Interfejsów Webowych</p>
+
+
+            <ol>
+                <li>Celem laboratorium jest utworzenie prostego portalu WWW</li>
+                <li>Portal WWW zawiera menu, teksty i elementy graficzne</li>
+                <li>Zawarte strony:</li>
+                <ul>
+                    <li><a href="main.html">Strona główna</a></li>
+                    <li><a href="register.html">Rejestracja</a></li>
+                    <li><a href="sign.html">Logowanie</a></li>
+                    <li><a href="game.html">Mini-gra</a></li>
+                    <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+                </ul>
+                <li>Odnośniki do zdjęć wykorzystanych poniżej</li>
+                <ul>
+                    <li><a href="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/04LDEYRW59.jpg">Zdjęcie 1</a>
+                    </li>
+                    <li><a href="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/90V03Q5Y60.jpg">Zdjęcie 2</a>
+                    </li>
+                    <li><a href="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/O83SF2RB6D.jpg">Zdjęcie 3</a>
+                    </li>
+                    <li><a href="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/5JVPSVP7EI.jpg">Zdjęcie 4</a>
+                    </li>
+                    <li><a href="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/C5Y10KIIHA.jpg">Zdjęcie 5</a>
+                    </li>
+                    <li><a href="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/YSSFRY5B25.jpg">Zdjęcie 6</a>
+                    </li>
+                </ul>
+            </ol>
+
+        </div>
+
+        <h1>Zdjęcia</h1>
+        <div class="row">
+            <div class="col-lg-4 col-6 px-0"><img
+                    src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/04LDEYRW59.jpg"
+                    class="img-thumbnail"></div>
+            <div class="col-lg-4 col-6 px-0"><img
+                    src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/90V03Q5Y60.jpg"
+                    class="img-thumbnail"></div>
+            <div class="col-lg-4 col-6 px-0"><img
+                    src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/O83SF2RB6D.jpg"
+                    class="img-thumbnail"></div>
+
+            <div class="col-lg-4 col-6 px-0"><img
+                    src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/5JVPSVP7EI.jpg"
+                    class="img-thumbnail"></div>
+            <div class="col-lg-4 col-6 px-0"><img
+                    src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/C5Y10KIIHA.jpg"
+                    class="img-thumbnail"></div>
+            <div class="col-lg-4 col-6 px-0"><img
+                    src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/YSSFRY5B25.jpg"
+                    class="img-thumbnail"></div>
+        </div>
+    </div>
+{% endblock %}

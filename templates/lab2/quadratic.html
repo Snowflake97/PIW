@@ -1,0 +1,49 @@
+{% extends "lab2/../base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Rozwiązania dwumianu</title>
+{% endblock %}
+
+{% block css_block %}
+    <style>
+    .jumbotron{
+        background-image: url("{% static "img/background_jumbotron.jpg" %}");
+        background-size: contain ;
+        height: 390px;
+    }
+    </style>
+{% endblock css_block %}
+
+{% block body_block %}
+    <br>
+    <div class="container">
+        <div class="jumbotron" align="center">
+            <form>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="a">Współczynnik a: </label>
+                        <input type="text" class="form-control" id="a">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="b">Współczynnik b: </label>
+                        <input type="text" class="form-control" id="b">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="c">Współczynnik c: </label>
+                        <input type="text" class="form-control" id="c">
+                    </div>
+                </div>
+                    <button type="button" class="btn btn-primary" id="calculate">Oblicz</button>
+            </form>
+    <br><br>
+            <h2 id="results1"></h2>
+            <h2 id="results2"></h2>
+        </div>
+    </div>
+{% endblock body_block %}
+
+{% block script %}
+    <script src="{% static "js/quadratic.js" %}"></script>
+{% endblock script %}

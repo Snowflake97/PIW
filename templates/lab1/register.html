@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Rejestracja</title>
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/master.css' %}">
+{% endblock css_block %}
+
+
+{% block body_block %}
+    <div class="container register-form">
+        <div class="form">
+            <div class="note">
+                <h1 id="title">Rejestracja</h1>
+            </div>
+
+            <div class="form-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Imię" value=""/>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Emial" value=""/>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Hasło" value=""/>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Potwierdź hasło" value=""/>
+                        </div>
+                        <div class="form-group mybutton">
+                            <button type="button" class="btnSubmit">Prześlij</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

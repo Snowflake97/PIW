@@ -1,0 +1,23 @@
+.myTable{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%
+}
+
+td{
+    border: solid black 5px;
+    text-align: center;
+    height: 150px;
+    width: 150px;
+    font-size: 90px;
+}
+.j1 {
+    background-image: url("https://mdbootstrap.com/img/Photos/Others/gradient1.jpg");
+    background-size: cover;
+}
+
+.jumbotron{
+
+    margin-left: 10%;
+    margin-right: 10%;
+}

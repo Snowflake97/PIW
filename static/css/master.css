@@ -1,0 +1,55 @@
+.j1 {
+    background-image: url("https://mdbootstrap.com/img/Photos/Others/gradient1.jpg");
+    background-size: cover;
+}
+
+.j2 {
+    background-image: url("https://theme-background-videos.s3.amazonaws.com/blue.jpg");
+    background-size: cover;
+}
+
+.form {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+#title {
+    padding-top: 1%;
+}
+
+.register-form {
+    padding-top: 2%;
+}
+
+.note {
+    text-align: center;
+    height: 80px;
+    background-image: url("https://mdbootstrap.com/img/Photos/Others/gradient1.jpg");
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+}
+
+.form-content {
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+}
+
+.form-control {
+    border-radius: 1.5rem;
+}
+
+.btnSubmit {
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: #0062cc;
+    color: #fff;
+}
+
+.mybutton {
+    text-align: center;
+}
