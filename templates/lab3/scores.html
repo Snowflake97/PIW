@@ -1,0 +1,69 @@
+{% extends "lab2/../base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Tabela wyników</title>
+{% endblock %}
+
+{% block css_block %}
+    {#        <link rel="stylesheet" type="text/css" href="{% static 'css/snake.css' %}">#}
+{% endblock css_block %}
+
+{% block body_block %}
+    <div class="container">
+        <br>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nazwa gracza</th>
+                <th scope="col">Wynik</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td id="top_1_name"></td>
+                <td id="top_1_score"></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td id="top_2_name"></td>
+                <td id="top_2_score"></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td id="top_3_name"></td>
+                <td id="top_3_score"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+{% endblock body_block %}
+
+{% block script %}
+    <script>
+        top_1_name = localStorage.getItem("top_1_name")
+        top_1_score = localStorage.getItem("top_1_score")
+
+        top_2_name = localStorage.getItem("top_2_name")
+        top_2_score = localStorage.getItem("top_2_score")
+
+        top_3_name = localStorage.getItem("top_3_name")
+        top_3_score = localStorage.getItem("top_3_score")
+
+        if (top_1_name != "null") {
+            document.getElementById("top_1_name").innerText = top_1_name
+            document.getElementById("top_1_score").innerText = top_1_score
+        }
+        if (top_2_name != "null") {
+            document.getElementById("top_2_name").innerText = top_2_name
+            document.getElementById("top_2_score").innerText = top_2_score
+        }
+        if (top_3_name != "null") {
+            document.getElementById("top_3_name").innerText = top_3_name
+            document.getElementById("top_3_score").innerText = top_3_score
+        }
+    </script>
+{% endblock script %}

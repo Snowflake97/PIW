@@ -1,0 +1,24 @@
+.canvasDiv {
+    height: 400px;
+    width: 400px;
+}
+
+.container {
+    padding-top: 10px;
+}
+
+.score {
+    padding-left: 80%;
+}
+
+.name {
+    padding-left: 80%;
+    padding-top: 0px;
+}
+.jumbotron{
+    background: white;
+    margin-top: 0px;
+    padding-top: 0px;
+
+}
+

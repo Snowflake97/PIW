@@ -1,0 +1,46 @@
+{% extends "lab2/../base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Edytor graficzny</title>
+{% endblock %}
+
+{% block css_block %}
+    <style>
+        .canvasDiv {
+            height: 400px;
+            width: 800px;
+        }
+
+        .container {
+            padding-top: 50px;
+        }
+    </style>
+{% endblock css_block %}
+
+{% block body_block %}
+    <div class="container" align="center">
+        <div class="canvasDiv">
+            <canvas id="myCanvas" class="canvasDiv" style="border:1px solid #000000;">
+            </canvas>
+        </div>
+        <br>
+        <div class="buttons" align="center">
+            <button type="button" id="circleBtn" class="btn btn-primary">Okrąg</button>
+            <button type="button" id="rectangleBtn" class="btn btn-primary">Prostokąt</button>
+            <button type="button" id="clearBtn" class="btn btn-primary">Wyczyść</button>
+            <br>
+            <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+            <label for="favcolor">Wybierz kolor</label>
+            <input type="checkbox" id="fill" name="fill"
+                   checked>
+            <label for="fill">Wypełnij</label>
+        </div>
+    </div>
+    </div>
+{% endblock body_block %}
+
+{% block script %}
+    <script src="{% static "js/canvas.js" %}"></script>
+{% endblock script %}
+

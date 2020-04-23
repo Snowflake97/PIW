@@ -1,0 +1,38 @@
+{% extends "lab2/../base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Snake</title>
+{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/snake.css' %}">
+{% endblock css_block %}
+
+{% block body_block %}
+    <div class="container">
+        <div class="name">
+            <p id="playerName">Imię gracza: </p>
+        </div>
+        <div class="score">
+            <p id="score">Wynik: 0</p>
+        </div>
+        <div class="jumbotron" align="center">
+            <h2 id="h2">Gra rozpocznie się po wciśnięciu dowolnej strzałki na klawiaturze</h2>
+            <div class="canvasDiv">
+                <canvas id="myCanvas" class="canvasDiv" style="border:1px solid #000000;">
+                </canvas>
+            </div>
+            <br>
+            <button id="resetButton" type="button" class="btn btn-primary btn-lg">Restart!</button>
+            <button id="top3Button" type="button" class="btn btn-primary btn-lg" onclick="location.href='{% url "lab3:scores" %}'">TOP 3</button>
+        </div>
+
+    </div>
+
+
+{% endblock body_block %}
+
+{% block script %}
+    <script src="{% static "js/snake.js" %}"></script>
+{% endblock script %}

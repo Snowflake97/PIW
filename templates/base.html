@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     {% block title_block %}
-{#    <title>PIW</title>#}
+
     {% endblock %}
     <link rel="stylesheet" href="{% static 'libraries/bootstrap.css' %}">
 
@@ -17,10 +17,11 @@
 </head>
 
 <style>
-      .dropdown-menu {
-    background-color: #343a40;
-  }
-    .dropdown-item{
+    .dropdown-menu {
+        background-color: #343a40;
+    }
+
+    .dropdown-item {
         color: white;
     }
 </style>
@@ -28,10 +29,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="{% url 'index' %}">#PIW</a>
-    {#        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01"#}
-    {#                aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">#}
-    {#            <span class="navbar-toggler-icon"></span>#}
-    {#        </button>#}
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -60,6 +57,17 @@
                     <a class="dropdown-item" href="{% url "lab2:animals" %}">Zadanie 4</a>
                     <a class="dropdown-item" href="{% url "lab2:animation" %}">Zadanie 5</a>
                     <a class="dropdown-item" href="{% url "lab2:game" %}">Zadanie 6</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Laboratorium 3
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url "lab3:canvas" %}">Zadanie 1</a>
+                    <a class="dropdown-item" href="{% url "lab3:snake" %}">Zadanie 2</a>
+                    <a class="dropdown-item" href="{% url "lab3:scores" %}">Zadanie 3</a>
                 </div>
             </li>
         </ul>
