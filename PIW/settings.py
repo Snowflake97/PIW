@@ -25,7 +25,7 @@ SECRET_KEY = 'yww0*xddv34dnvocdy^w_dq3co=_#nq00ox=wyyo*ipme7p9+3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['snowflake97.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1','snowflake97.pythonanywhere.com']
 
 
 # Application definition

@@ -202,6 +202,10 @@ function go_next() {
 }
 
 player_name = prompt("Nazwa gracza: ")
+
+if (player_name == "null" || player_name == "") {
+    player_name = "player"
+}
 document.getElementById("playerName").innerText = "Imię gracza: " + player_name
 initMap();
 readResults()
