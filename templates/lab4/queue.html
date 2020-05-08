@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title_block %}
+    <title>Kolejka</title>
+{% endblock %}
+
+{% block css_block %}
+    <style>
+        #minTime {
+            width: 70px;
+        }
+
+        #maxTime {
+            width: 70px;
+        }
+
+    #size{
+        width: 50px;
+    }
+    </style>
+{% endblock css_block %}
+
+{% block body_block %}
+    <br>
+    <div class="container" align="center">
+        <div class="jumbotron">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <p>Urzędnik A zajmuje się:
+                        <output id="officialA"></output>
+                    </p>
+                </div>
+                <div class="form-group col-md-4">
+                    <p>Urzędnik B zajmuje się:
+                        <output id="officialB"></output>
+                    </p>
+                </div>
+                <div class="form-group col-md-4">
+                    <p>Urzędnik C zajmuje się:
+                        <output id="officialC"></output>
+                    </p>
+                </div>
+            </div>
+            <p>Kolejka:
+                <output id="result"></output>
+            </p>
+
+            <label for="minTime">Minimalny czas klienta(ms):</label>
+            <input type="number" min="200" max="2000" id="minTime" value="2000">
+
+            <label for="maxTime">Maksymalny czas klienta(ms):</label>
+            <input type="number" min="1000" max="10000" id="maxTime" value="5000">
+
+            <label for="size">Wielkość kolejki:</label>
+            <input type="number" min="1" id="size" value="10">
+            <button onclick="startWorker()" class="btn btn-primary">Start</button>
+            <button onclick="stopWorker()" class="btn btn-primary">Stop</button>
+
+            <br><br>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <p>Obsłużeni:
+                        <output id="served">0</output>
+                    </p>
+                </div>
+                <div class="form-group col-md-6">
+                    <p>Odrzuceni:
+                        <output id="rejected">0</output>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body_block %}
+
+{% block script %}
+    <script>
+        var queueSize
+
+        var queue;
+        var checkTick;
+
+        var officialA;
+        var officialB;
+        var officialC;
+
+        var isOfficialAFree = true;
+        var isOfficialBFree = true;
+        var isOfficialCFree = true;
+        var person_list = []
+
+        var rejectCounter = 0;
+        var servedCounter = 0;
+
+        var minClientTime;
+        var maxClientTime;
+
+        function printClients() {
+            document.getElementById("result").innerText = ""
+            for (i = 0; i < person_list.length; i++) {
+                var client_data = person_list[i].name + "(" + person_list[i].time + ")";
+                document.getElementById("result").innerText += client_data
+            }
+        }
+
+        function startWorker() {
+            queueSize = document.getElementById("size").value
+            queue = new Worker("{% static "js/queue.js" %}");
+            tick = new Worker("{% static "js/check_tick.js" %}");
+            officialA = new Worker("{% static "js/official.js" %}");
+            officialB = new Worker("{% static "js/official.js" %}");
+            officialC = new Worker("{% static "js/official.js" %}");
+
+            tick.addEventListener('message', function (e) {
+                if (isOfficialAFree == true && person_list.length > 0) {
+                    servedCounter++;
+                    isOfficialAFree = false
+                    client = person_list.shift()
+                    document.getElementById("officialA").innerText = client.name + "(" + client.time + ")";
+                    printClients()
+                    officialA.postMessage(client.time)
+                } else if (isOfficialBFree == true && person_list.length > 0) {
+                    servedCounter++;
+                    isOfficialBFree = false
+                    client = person_list.shift()
+                    document.getElementById("officialB").innerText = client.name + "(" + client.time + ")";
+                    printClients()
+                    officialB.postMessage(client.time)
+                } else if (isOfficialCFree == true && person_list.length > 0) {
+                    servedCounter++;
+                    isOfficialCFree = false
+                    client = person_list.shift()
+                    document.getElementById("officialC").innerText = client.name + "(" + client.time + ")";
+                    printClients()
+                    officialC.postMessage(client.time)
+                }
+                document.getElementById("rejected").innerText = rejectCounter
+                document.getElementById("served").innerText = servedCounter
+            }, false);
+
+            queue.addEventListener('message', function (e) {
+                if (person_list.length < queueSize) {
+                    person_list.push(e.data)
+                    printClients()
+                } else {
+                    rejectCounter++;
+                }
+
+            }, false);
+
+            officialA.addEventListener('message', function (e) {
+                if (e.data == 'free') {
+                    document.getElementById("officialA").innerText = ""
+                    isOfficialAFree = true
+                }
+
+            }, false);
+
+            officialB.addEventListener('message', function (e) {
+                if (e.data == 'free') {
+                    document.getElementById("officialB").innerText = ""
+                    isOfficialBFree = true
+                }
+
+            }, false);
+
+            officialC.addEventListener('message', function (e) {
+                if (e.data == 'free') {
+                    document.getElementById("officialC").innerText = ""
+                    isOfficialCFree = true
+                }
+
+            }, false);
+
+            minClientTime = document.getElementById("minTime").value
+            maxClientTime = document.getElementById("maxTime").value
+            queue.postMessage(minClientTime + "." + maxClientTime)
+
+        }
+
+        function stopWorker() {
+            servedCounter = 0;
+            rejectCounter = 0;
+            document.getElementById("rejected").innerText = 0
+            document.getElementById("served").innerText = 0
+            document.getElementById("officialA").innerText = ""
+            document.getElementById("officialB").innerText = ""
+            document.getElementById("officialC").innerText = ""
+            document.getElementById("result").innerText = ""
+            person_list = []
+            isOfficialAFree = true;
+            isOfficialBFree = true;
+            isOfficialCFree = true;
+            queue.terminate();
+            tick.terminate();
+            officialA.terminate()
+            officialB.terminate()
+            officialC.terminate()
+        }
+
+
+    </script>
+{% endblock script %}
